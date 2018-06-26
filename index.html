@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title> Welcome! | App v0.4 </title>
+      <script src="./js/script.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+
+
+html, body {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  background-color:lightgrey;
+}
+
+.wrapper {
+  height: 100%;
+  margin-bottom: -95px;
+}
+
+.footer, .push {
+  height: 50px;
+  margin-top:45px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    height:100%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    min-height:600px;
+    width:100%;
+    background:white;
+}
+
+.tablinks{
+    width:12%;
+    font-weight:bold;
+    text-align:center;
+}
+
+.icon{
+    font-size:3em;
+    display:none;
+}
+
+.mascott{
+    width:4em;
+    height:auto;
+    position:absolute;
+    margin-top:-50;
+    margin-left:-55px;
+    display:none;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button{
+  border-radius: 10px;
+  background: #33cc33;
+  padding:1em;
+  border: 0px;
+  margin-top:10px;
+  margin-left:10px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  min-width:20%;
+  flex-grow:2;
+}
+
+.button:hover{
+  box-shadow:0px 8px #888888;
+}
+
+@media all and (max-width: 866px) {
+    .button{
+        min-width:40%;
+        font-size:1em;
+        /* background-color:grey; */
+    }
+    .icon{
+        font-size:1em;
+        display:block;
+    }
+    h1{
+        font-size:16px;
+    }
+    .mascott{
+        display:none;
+    }
+    .label{
+        display:none;
+    }
+}
+.frame-area {
+  /*display: block;*/
+  width: 100%;  /* RESPONSIVE WIDTH */
+  height: 100%;
+  min-height:450px;
+  overflow: hidden;/*  EDIT TO hidden FOR NO SCROLLBAR */
+  border: #999999 1px solid;
+  margin: 0px;
+  padding: 0px;
+}
+
+        </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+
+<div id="assistant" class="tabcontent">
+  <h1>Assistant</h1>
+  <p style="text-align:center; width:100%">
+    <h2>Coming soon...</h2>
+    <img src="./res/bijou_comingsoon.png" style="width:30%;"></img>
+  </p>
+</div>
+
+<div id="aquaponics" class="tabcontent">
+  <h1>Aquaponics</h1>
+  <p style="test-align:center; width:100%">
+    <h2>Coming soon... </h2>
+  </p>
+</div>
+
+<div id="controls" class="tabcontent" style="display:block;">
+  <h1>Controls</h1>
+  <div class="container">
+  <button class="button" onclick="probe(event, 'http://192.168.0.110:8080/index.html?param=light1toggle')">Light #1</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.110:8080/index.html?param=light2toggle')">Light #2</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.110:8080/index.html?param=light3toggle')">Light #3</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.110:8080/index.html?param=light4toggle')">Light #4</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.107:8088/index.html?param=light1toggle')">Light #5</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.107:8088/index.html?param=light2toggle')">Light #6</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.107:8088/index.html?param=light3toggle')">Light #7</button>
+  <button class="button" onclick="probe(event, 'http://192.168.0.107:8088/index.html?param=light4toggle')">Light #8</button>
+  </div>
+</div>
+
+<div id="alarms" class="tabcontent">
+  <h1>Alarms</h1>
+  <p>
+    <h2>Coming Soon...</h2>
+  </p>
+</div>
+
+<div id="images" class="tabcontent" style="padding:0px">
+  <!--<h1>Images</h1>-->
+  <iframe src="http://192.168.0.107:8888" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
+</div>
+
+<div id="kodi" class="tabcontent" style="padding:0px">
+  <!--<h1>KODI Remote</h1>-->
+  <iframe src="http://192.168.0.107:8080" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
+</div>
+
+<div id="network" class="tabcontent">
+  <h1>Network</h1>
+  <p>
+    <h2>Coming Soon...</h2>
+  </p>
+</div>
+
+<div id="Settings" class="tabcontent">
+  <h1>Settings</h1>
+  <p>
+    <h2>Coming Soon...</h2>
+  </p>
+</div>
+            <!--<div class="push"></div>-->
+        </div>
+        <footer class="footer">
+            <div class="tab">
+
+                <button class="tablinks" onclick="openTab(event, 'assistant')">
+                    <i class="fa fa-connectdevelop icon"></i>
+                    <img class="mascott" src="./res/mascott.gif"></img>
+                    <div class="label">Assistant</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'controls')">
+		    <i class="fa fa-lightbulb-o icon"></i>
+                    <div class="label">Lights</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'aquaponics')">
+		    <i class="fa fa-leaf icon"></i>
+                    <div class="label">Aquaponics</div>
+		</button>
+
+                <button class="tablinks" onclick="openTab(event, 'alarms')">
+                    <i class="fa fa-bell-o icon"></i>
+                    <div class="label">Alarms</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'images')">
+                    <i class="fa fa-file-image-o icon"></i>
+                    <div class="label">Images</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'kodi')">
+                    <i class="icon" style=font-weight:bold;">K </i>
+                    <div class="label">Remote</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'network')">
+                    <i class="fa fa-wifi icon"></i>
+                    <div class="label">Network</div>
+                </button>
+
+                <button class="tablinks" onclick="openTab(event, 'Settings')">
+		    <i class="fa fa-cog icon"></i>
+                    <div class="label">Settings</div>
+		</button>
+            </div>
+        </footer>
+    </body>
+</html>

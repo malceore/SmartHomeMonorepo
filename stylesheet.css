@@ -1,0 +1,185 @@
+body{
+    padding:0px;
+    margin:0px;
+    border:0px;    
+    background:#66004d;
+    color:lightgrey;
+    font-family: 'Russo One', sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+     user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+     height:100%;
+}
+
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer, .push {
+    height: 50px; /* .push must be the same height as .footer */
+}
+
+
+header{
+    width:100%;
+    height:100px;
+    padding:0em;
+}
+
+.icon{
+    position:absolute;
+    margin-left:-76px;
+    margin-top:22px;
+}
+
+.title{
+    vertical-align: text-bottom;
+    padding:1em;
+    font-weight:bold;
+    height:50%;
+    width:25%;
+    font-size:24px;
+    /*color:lightgrey*/;
+    text-decoration: underline;
+    float:left;
+}
+
+.row_top{
+    font-size:80px;
+    height:50px;
+    width:auto;
+    margin-right:22px;
+    float:left;
+    padding:0px;
+}
+
+.row_bot{
+    font-size:80px;
+    height:50px;
+    width:25%;
+    float:left;
+    padding:0px;
+}
+
+.spacer{
+    float:left;
+    width:20%;
+    height:100%;
+}
+
+.display{
+    
+}
+
+@media only screen and (max-width: 900px) {
+    .row_bot{
+        width:50%;
+        margin-left:32px;
+        margin-top:5px;
+    }
+    .row_top{
+        width:50%;
+    }
+    .spacer{
+        width:10%;
+    }
+}
+
+
+section{
+    float:left;
+    width:100%;
+    height:100%;
+    padding:2em;
+    padding-top:1em;
+}
+
+aside{
+    float:left;
+    width:20%;
+    color:white;
+}
+
+.container{
+    border:1px solid black;
+}
+
+span{
+    color:lightgrey;
+    transition: all .2s ease-in-out; 
+    margin-left:-30px;
+}
+
+span:hover{ 
+    color:white;
+}
+
+/* Hide default HTML checkbox*/
+.switch input {display:none;}
+
+.slider{
+  font-size: 50px; 
+  position:absolute; 
+  color:#E4837B; 
+  margin-top:10px;
+  margin-left:6px;
+}
+
+input:checked + .slider:before{
+  color:red;
+}
+
+input:checked + .slider{
+  color:#B0CD61;
+}
+
+.outter{
+  font-size:65px; 
+  position:absolute;
+  color:lightgrey;
+  transition: all .2s ease-in-out; 
+}
+
+.fa{
+  color:grey;
+  transition: all .2s ease-in-out;
+}
+
+.fa:hover{
+  color:darkgrey;
+  font-size-adjust:0.53;
+}
+
+
+.switch:hover > .outter{
+    transform: scale(1.2); 
+    color:white;  
+}
+
+.switch:hover > .label{
+    text-decoration: underline;
+}
+
+.switch:active > .slider{
+    color:#B0CD61;
+}
+
+.switch{
+  float:left;
+  padding:1em;
+}
+
+.label{
+   /*font-weight:bold;*/
+   font-size:18px;
+   margin-left:65px;
+   margin-top:32px;  
+}
+/*.red   { background: #E4837B; }
+.green { background: #B0CD61; }*/
