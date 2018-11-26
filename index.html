@@ -16,13 +16,14 @@ html, body {
     -ms-user-select: none; /* Internet Explorer/Edge */
      user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
   height: 100%;
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
   font-family: Arial;
   background-color:lightgrey;
 }
 
 .wrapper {
-  height: 100%;
+  height: 99%;
   margin-bottom: -95px;
 }
 
@@ -69,7 +70,7 @@ html, body {
     border: 1px solid #ccc;
     border-top: none;
     min-height:600px;
-    width:100%;
+    width:99%;
     background:white;
 }
 
@@ -119,6 +120,11 @@ html, body {
   box-shadow:0px 8px #888888;
 }
 
+#portrait{
+	width: auto;
+        height: 20%;
+}
+
 @media all and (max-width: 866px) {
     .button{
         min-width:40%;
@@ -137,6 +143,10 @@ html, body {
     }
     .label{
         display:none;
+    }
+    #portrait{
+        width: 40%;
+        height: auto;
     }
 }
 .frame-area {
@@ -159,8 +169,8 @@ html, body {
 <div id="assistant" class="tabcontent">
   <h1>Assistant</h1>
   <p style="text-align:center; width:100%">
-    <img src="./res/bijou_float.png" style="width:40%;"></img>
-    <div style="width:600px"><h2>?</h2></div>
+    <img id="portrait" src="./res/bijou_float.png"></img>
+    <div style="background-color:gold; color:white;text-align:center; padding:0.5em; font-size:66px; font-weight:bold;"><i class="fa fa-microphone"></i></div>
   </p>
 </div>
 
