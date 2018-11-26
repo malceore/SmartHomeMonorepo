@@ -4,10 +4,8 @@
       <title> Welcome! | App v0.4 </title>
       <script src="./js/script.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <style>
-
-
 html, body {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -196,20 +194,15 @@ html, body {
 </div>
 
 <div id="alarms" class="tabcontent">
-  <h1>Alarms</h1>
-  <p>
-    <h2>Coming Soon...</h2>
-  </p>
+  <iframe src="http://192.168.0.107:8080" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
 </div>
 
 <div id="images" class="tabcontent" style="padding:0px">
-  <!--<h1>Images</h1>-->
-  <iframe src="http://192.168.0.107:8888" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
+  <iframe src="http://192.168.0.107:8080" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
 </div>
 
-<div id="kodi" class="tabcontent" style="padding:0px">
-  <!--<h1>KODI Remote</h1>-->
-  <iframe src="http://192.168.0.107:8080" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
+<div id="kodi" class="tabcontent" style="padding:0px height:100%;">
+  <iframe src="http://pi.hole/admin/" frameborder="0" scrolling="auto" class="frame-area"> </iframe>
 </div>
 
 <div id="network" class="tabcontent">
@@ -231,29 +224,29 @@ html, body {
             <div class="tab">
 
                 <button class="tablinks" onclick="openTab(event, 'assistant')">
-                    <i class="fa fa-connectdevelop icon"></i>
+                    <i class="fa fa-microphone icon"></i>
                     <img class="mascott" src="./res/mascott.gif"></img>
                     <div class="label">Assistant</div>
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'controls')">
-		    <i class="fa fa-lightbulb-o icon"></i>
-                    <div class="label">Lights</div>
+		    <i class="fa fa-lightbulb icon"></i>
+                    <div class="label">Controls</div>
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'aquaponics')">
-		    <i class="fa fa-leaf icon"></i>
-                    <div class="label">Aquaponics</div>
+		    <i class="fa fa-tasks icon"></i>
+                    <div class="label">Tasker</div>
 		</button>
 
                 <button class="tablinks" onclick="openTab(event, 'alarms')">
-                    <i class="fa fa-bell-o icon"></i>
-                    <div class="label">Alarms</div>
+                    <i class="fa fa-chart-pie icon"></i>
+                    <div class="label">Pihole</div>
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'images')">
-                    <i class="fa fa-file-image-o icon"></i>
-                    <div class="label">Images</div>
+                    <i class="fa fa-seedling icon"></i>
+                    <div class="label">Seedbox</div>
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'kodi')">
@@ -262,12 +255,12 @@ html, body {
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'network')">
-                    <i class="fa fa-wifi icon"></i>
-                    <div class="label">Network</div>
+                    <i class="fa fa-sync icon"></i>
+                    <div class="label">Syncthing</div>
                 </button>
 
                 <button class="tablinks" onclick="openTab(event, 'Settings')">
-		    <i class="fa fa-cog icon"></i>
+		    <i class="fa fa-cogs icon"></i>
                     <div class="label">Settings</div>
 		</button>
             </div>
