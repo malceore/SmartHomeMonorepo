@@ -23,15 +23,15 @@ const int pin3=4;
 const int pin4=0;
 
 const char* ledTypes[] = {"OnOffSwitch", "Light", nullptr};
-ThingDevice led1("led1", "Built-in LED", ledTypes);
-ThingDevice led2("led2", "Built-in LED", ledTypes);
-ThingDevice led3("led3", "Built-in LED", ledTypes);
-ThingDevice led4("led4", "Built-in LED", ledTypes);
+ThingDevice led5("led5", "Built-in LED", ledTypes);
+ThingDevice led6("led6", "Built-in LED", ledTypes);
+ThingDevice led7("led7", "Built-in LED", ledTypes);
+ThingDevice led8("led8", "Built-in LED", ledTypes);
 
-ThingProperty led1On("on", "", BOOLEAN, "OnOffProperty");
-ThingProperty led2On("on", "", BOOLEAN, "OnOffProperty");
-ThingProperty led3On("on", "", BOOLEAN, "OnOffProperty");
-ThingProperty led4On("on", "", BOOLEAN, "OnOffProperty");
+ThingProperty led5On("on", "", BOOLEAN, "OnOffProperty");
+ThingProperty led6On("on", "", BOOLEAN, "OnOffProperty");
+ThingProperty led7On("on", "", BOOLEAN, "OnOffProperty");
+ThingProperty led8On("on", "", BOOLEAN, "OnOffProperty");
 
 bool lastOn1 = false;
 bool lastOn2 = false;
@@ -73,17 +73,18 @@ void setup(void){
   Serial.println(ssid);
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
-  adapter = new WebThingAdapter("w25", WiFi.localIP());
+  // Change this below value for each new switch on your network.
+  adapter = new WebThingAdapter("w26", WiFi.localIP());
 
-  led1.addProperty(&led1On);
-  led2.addProperty(&led2On);
-  led3.addProperty(&led3On);
-  led4.addProperty(&led4On);
+  led5.addProperty(&led5On);
+  led6.addProperty(&led6On);
+  led7.addProperty(&led7On);
+  led8.addProperty(&led8On);
   
-  adapter->addDevice(&led1);
-  adapter->addDevice(&led2);
-  adapter->addDevice(&led3);
-  adapter->addDevice(&led4);
+  adapter->addDevice(&led5);
+  adapter->addDevice(&led6);
+  adapter->addDevice(&led7);
+  adapter->addDevice(&led8);
   adapter->begin();
   
   Serial.println("HTTP server started");
@@ -91,49 +92,49 @@ void setup(void){
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");
-  Serial.println(led1.id);
+  Serial.println(led5.id);
   
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");  
-  Serial.println(led2.id);
+  Serial.println(led6.id);
 
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");
-  Serial.println(led3.id);
+  Serial.println(led7.id);
   
   Serial.print("http://");
   Serial.print(WiFi.localIP());
   Serial.print("/things/");
-  Serial.println(led4.id);
+  Serial.println(led8.id);
 }
 
 void loop(void){
   adapter->update();
-  bool on1 = led1On.getValue().boolean;
-  bool on2 = led2On.getValue().boolean;
-  bool on3 = led3On.getValue().boolean;
-  bool on4 = led4On.getValue().boolean;
+  bool on1 = led5On.getValue().boolean;
+  bool on2 = led6On.getValue().boolean;
+  bool on3 = led7On.getValue().boolean;
+  bool on4 = led8On.getValue().boolean;
   
   if (on1 != lastOn1 || on2 != lastOn2 || on3 != lastOn3 || on4 != lastOn4) {
     digitalWrite(pin1, on1 ? LOW : HIGH); // active low led
-    Serial.print(led1.id);
+    Serial.print(led5.id);
     Serial.print(": ");
     Serial.println(on1);
 
     digitalWrite(pin2, on2 ? LOW : HIGH); // active low led
-    Serial.print(led2.id);
+    Serial.print(led6.id);
     Serial.print(": ");
     Serial.println(on2);
 
     digitalWrite(pin3, on3 ? LOW : HIGH); // active low led
-    Serial.print(led3.id);  
+    Serial.print(led7.id);  
     Serial.print(": ");
     Serial.println(on3);
 
     digitalWrite(pin4, on4 ? LOW : HIGH); // active low led
-    Serial.print(led4.id);
+    Serial.print(led8.id);
     Serial.print(": ");
     Serial.println(on4);
   } 
