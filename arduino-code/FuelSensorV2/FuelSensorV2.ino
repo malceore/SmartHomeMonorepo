@@ -14,19 +14,20 @@
 #include "WebThingAdapter.h"
 
 const char* deviceTypes[] = {"MultiLevelSensor", "Sensor", nullptr};
-ThingDevice device("fuelsensor", "Analog Sensor pluged in single pin", deviceTypes);
-ThingProperty property("level", "Analog Input pin", NUMBER, "LevelProperty");
+ThingDevice device("fuelsensor", "FuelSensor", deviceTypes);
+ThingProperty property("level", "FuelLevel", NUMBER, "LevelProperty");
 WebThingAdapter* adapter;
 
 const char* ssid = "GOAT";
 const char* password = "goatseatgrass";
 const int pingPin = 15; // Trigger Pin of Ultrasonic Sensor
 const int echoPin = 13; // Echo Pin of Ultrasonic Sensor
-double lastValue = 0;
+const int ledPin = 2;
 
 void setup(void) {
   pinMode(pingPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(ledPin, OUTPUT);
   
   Serial.begin(115200);
   Serial.println("");
@@ -84,27 +85,22 @@ long getValue(){
 }
 
 void loop(void) {
+  digitalWrite(ledPin, HIGH); 
   int value = getValue();
   double percent = (double) 100. - (value/90.*100.);
   ThingPropertyValue levelValue;
   levelValue.number = percent;
   property.setValue(levelValue);
-  delay(1000);
-  adapter->update();
-
-  value = getValue();
-  percent = (double) 100. - (value/90.*100.);
-  levelValue.number = percent;
-  property.setValue(levelValue);
-  delay(1000);
+  delay(100);
   adapter->update();
   
   value = getValue();
   percent = (double) 100. - (value/90.*100.);
   levelValue.number = percent;
   property.setValue(levelValue);  
-  delay(1000);
+  delay(100);
   adapter->update();
-  
-  ESP.deepSleep(180e7);
+  digitalWrite(ledPin, LOW); 
+  //ESP.deepSleep(15e7);
+  ESP.deepSleep(10e6);
 }
